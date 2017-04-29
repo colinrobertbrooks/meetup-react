@@ -1,0 +1,44 @@
+class ComponentLifecycle extends React.Component {
+  /*
+    mounting
+  */
+  componentWillMount() {
+    // connect to external APIs...
+  }
+  componentDidMount() {
+    // add event listeners...
+    // initiate network requests...
+    // set up libraries (e.g. draw SVG)...
+  }
+  /*
+    updating
+  */
+  componentWillReceiveProps(nextProps) {
+    // evaluate next props...
+    // update libraries (e.g. redraw SVG)...
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    // evaluate next props/state...
+    // return a boolean...
+  }
+  componentWillUpdate(nextProps, nextState) {
+    // prepare for re-render...
+  }
+  componentDidUpdate(prevProps, prevState) {
+     // respond to re-render...
+  }
+  /*
+    unmounting
+  */
+  componentWillUnmount() {
+    // remove event listeners...
+    // cancel network requests...
+    // tear down libraries (e.g. remove SVG)...
+  }
+   /*
+    render
+  */
+  render() {
+    return /* JSX... */;
+  }
+}

@@ -1,0 +1,21 @@
+class ComponentWithProps extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello, World!</h1>
+        <h2>This is {this.props.name}.</h2>
+      </div>
+    );
+  }
+}
+
+ComponentWithProps.propTypes = {
+  name: PropTypes.string.isRequired
+};
+
+ReactDOM.render(
+  <ComponentWithProps
+    name="React"
+  />,
+  document.getElementById('root')
+);
