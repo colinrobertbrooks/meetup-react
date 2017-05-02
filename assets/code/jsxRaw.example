@@ -1,6 +1,0 @@
-// JSX element
-<h1
-  className="your-class"
->
-  Hello, World!
-</h1>

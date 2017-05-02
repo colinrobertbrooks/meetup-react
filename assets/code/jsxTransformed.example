@@ -1,6 +1,0 @@
-// returns a React element, which is an object representing DOM
-React.createElement(
-  'h1',
-  { className: 'your-class' },
-  'Hello, World!'
-);
