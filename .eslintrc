@@ -40,6 +40,6 @@
     "react/jsx-filename-extension": 0,
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
-    "semi": [2, "always"],
+    "semi": [2, "always"]
   }
 }

@@ -19,9 +19,6 @@ import {
   Text
 } from 'spectacle';
 
-// import image preloader util
-import preloader from 'spectacle/lib/utils/preloader';
-
 // import theme
 import createTheme from 'spectacle/lib/themes/default';
 
@@ -37,12 +34,6 @@ import ComponentWithEvent from '../assets/components/ComponentWithEvent';
 // require css
 require('normalize.css');
 require('spectacle/lib/themes/default/index.css');
-
-// require and load images
-const images = {
-  react: require('../assets/images/react-logo.png')
-};
-preloader(images);
 
 // configure theme
 const theme = createTheme({
@@ -71,7 +62,7 @@ export default class Presentation extends React.Component {
         >
           <Image
             height={275}
-            src={images.react}
+            src={'https://s3-us-west-2.amazonaws.com/svgporn.com/logos/react.svg'}
           />
           <Heading
             size={2}
@@ -485,7 +476,7 @@ export default class Presentation extends React.Component {
             margin="15px 0 0"
             textColor="tertiary"
           >
-            An optional, XLM/HTML-like syntactic sugar used to describe what the UI should look like.
+            An optional, XML/HTML-like syntactic sugar used to describe what the UI should look like.
           </Text>
         </Slide>
         {/* jsx (code panes) */}
@@ -1257,7 +1248,7 @@ export default class Presentation extends React.Component {
             textColor="quartenary"
           >
             <Link
-              href="ttps://twitter.com/colinrcummings"
+              href="https://twitter.com/colinrcummings"
               style={{
                 color: 'inherit'
               }}
