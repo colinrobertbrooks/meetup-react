@@ -22,6 +22,10 @@ import {
 // import theme
 import createTheme from 'spectacle/lib/themes/default';
 
+// import css
+import 'normalize.css';
+import 'spectacle/lib/themes/default/index.css';
+
 // import customized component from spectacle-code-slide
 import CodeSlide from '../assets/components/CodeSlide/index';
 
@@ -31,20 +35,22 @@ import ComponentWithPropsContainer from '../assets/components/ComponentWithProps
 import ComponentWithState from '../assets/components/ComponentWithState';
 import ComponentWithEvent from '../assets/components/ComponentWithEvent';
 
-// require css
-require('normalize.css');
-require('spectacle/lib/themes/default/index.css');
+// import images
+import reactLogo from '../assets/images/react.png';
 
 // configure theme
-const theme = createTheme({
-  primary: '#f9f9f9', // white
-  secondary: '#2d2d2d', // gray
-  tertiary: '#61dafb', // blue
-  quartenary: '#cc7a6f' // red
-}, {
-  primary: 'Montserrat',
-  secondary: 'Helvetica'
-});
+const theme = createTheme(
+  {
+    primary: '#f9f9f9', // white
+    secondary: '#2d2d2d', // gray
+    tertiary: '#61dafb', // blue
+    quartenary: '#cc7a6f' // red
+  },
+  {
+    primary: 'Montserrat',
+    secondary: 'Helvetica'
+  }
+);
 
 export default class Presentation extends React.Component {
   render() {
@@ -56,46 +62,24 @@ export default class Presentation extends React.Component {
         transitionDuration={500}
       >
         {/* cover */}
-        <Slide
-          bgColor="secondary"
-          transition={['fade']}
-        >
-          <Image
-            height={275}
-            src={'https://s3-us-west-2.amazonaws.com/svgporn.com/logos/react.svg'}
-          />
-          <Heading
-            size={2}
-            lineHeight={1}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" transition={['fade']}>
+          <Image height={275} src={reactLogo} />
+          <Heading size={2} lineHeight={1} textColor="tertiary">
             React.js
           </Heading>
-          <Text
-            caps
-            margin='15px 0 0'
-            size={6}
-            textColor="primary"
-          >
+          <Text caps margin="15px 0 0" size={6} textColor="primary">
             An introduction
           </Text>
         </Slide>
         {/* what is react? (quote) */}
-        <Slide
-          bgColor="secondary"
-          transition={['fade']}
-        >
-          <Heading
-            caps
-            size={5}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" transition={['fade']}>
+          <Heading caps size={5} textColor="tertiary">
             What is React?
           </Heading>
           <BlockQuote>
             <Quote>
-              React is a declarative, efficient and flexible JavaScript{' '}
-              library for building user interfaces.
+              React is a declarative, efficient and flexible JavaScript library
+              for building user interfaces.
             </Quote>
             <Cite>
               <Link
@@ -111,16 +95,8 @@ export default class Presentation extends React.Component {
           </BlockQuote>
         </Slide>
         {/* benefits (list) */}
-        <Slide
-          bgColor="secondary"
-          textColor="primary"
-          transition={['fade']}
-        >
-          <Heading
-            caps
-            size={5}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" textColor="primary" transition={['fade']}>
+          <Heading caps size={5} textColor="tertiary">
             Benefits
           </Heading>
           <List>
@@ -128,10 +104,12 @@ export default class Presentation extends React.Component {
               It&apos;s a library (not a framework)
             </ListItem>
             <ListItem style={{ fontSize: '1.6rem' }}>
-              It&apos;s (mostly) JavaScript (no templates, domain-specific language, etc)
+              It&apos;s (mostly) JavaScript (no templates, domain-specific
+              language, etc)
             </ListItem>
             <ListItem style={{ fontSize: '1.6rem' }}>
-              It&apos;s declarative (code describes &quot;what&quot; not &quot;how&quot;)
+              It&apos;s declarative (code describes &quot;what&quot; not
+              &quot;how&quot;)
             </ListItem>
             <ListItem style={{ fontSize: '1.6rem' }}>
               It&apos;s component-based (composable, reusable, stateful)
@@ -154,16 +132,8 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         {/* prerequisites (list) */}
-        <Slide
-          bgColor="secondary"
-          textColor="primary"
-          transition={['fade']}
-        >
-          <Heading
-            caps
-            size={5}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" textColor="primary" transition={['fade']}>
+          <Heading caps size={5} textColor="tertiary">
             Prerequisites
           </Heading>
           <Text
@@ -185,8 +155,8 @@ export default class Presentation extends React.Component {
                 target="_blank"
               >
                 HTML
-              </Link>
-              {' '}(including the{' '}
+              </Link>{' '}
+              (including the{' '}
               <Link
                 href="https://developer.mozilla.org/en-US/docs/Using_Web_Standards_in_your_Web_Pages/Using_the_W3C_DOM"
                 style={{
@@ -207,8 +177,8 @@ export default class Presentation extends React.Component {
                 target="_blank"
               >
                 JavaScript
-              </Link>
-              {' '} (including{' '}
+              </Link>{' '}
+              (including{' '}
               <Link
                 href="https://babeljs.io/learn-es2015/"
                 style={{
@@ -221,12 +191,7 @@ export default class Presentation extends React.Component {
               )
             </ListItem>
           </List>
-          <Text
-            bold
-            size={6}
-            textAlign={'left'}
-            textColor="primary"
-          >
+          <Text bold size={6} textAlign={'left'} textColor="primary">
             Familiarity with (recommended):
           </Text>
           <List>
@@ -266,16 +231,8 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         {/* core concepts (list) */}
-        <Slide
-          bgColor="secondary"
-          textColor="primary"
-          transition={['fade']}
-        >
-          <Heading
-            caps
-            size={5}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" textColor="primary" transition={['fade']}>
+          <Heading caps size={5} textColor="tertiary">
             Core Concepts
           </Heading>
           <List>
@@ -364,30 +321,17 @@ export default class Presentation extends React.Component {
             style={{
               color: '#949494'
             }}
-
           >
             The examples that follow use React v15.5.4, which was the latest{' '}
             release at the time of this presentation.
           </Text>
         </Slide>
         {/* render (intro) */}
-        <Slide
-          bgColor="secondary"
-          transition={['fade']}
-        >
-          <Heading
-            size={1}
-            lineHeight={1}
-            textColor="primary"
-          >
+        <Slide bgColor="secondary" transition={['fade']}>
+          <Heading size={1} lineHeight={1} textColor="primary">
             Render
           </Heading>
-          <Text
-            italic
-            fit
-            margin='15px 0 0'
-            textColor="tertiary"
-          >
+          <Text italic fit margin="15px 0 0" textColor="tertiary">
             The primary API for rendering into the DOM.
           </Text>
         </Slide>
@@ -404,37 +348,33 @@ export default class Presentation extends React.Component {
             {
               loc: [1, 2],
               title: 'Render (code)',
-              note: 'Define a new element (in this case an <h1> with the innerHTML of "Hello, World!" using JSX).'
+              note:
+                'Define a new element (in this case an <h1> with the innerHTML of "Hello, World!" using JSX).'
             },
             {
               loc: [2, 3],
               title: 'Render (code)',
-              note: 'Specify a container in the DOM (in this case an existing element, such as a <div>, that has the id of "root").'
+              note:
+                'Specify a container in the DOM (in this case an existing element, such as a <div>, that has the id of "root").'
             },
             {
               loc: [0, 1],
               title: 'Render (code)',
-              note: 'Mount the new element into the DOM as a child of the existing container element...'
+              note:
+                'Mount the new element into the DOM as a child of the existing container element...'
             },
             {
               loc: [0, 1],
               title: 'Render (code)',
-              note: '...unless it was previously mounted, in which case it will be updated if it changed (using the fewest mutations possible).'
+              note:
+                '...unless it was previously mounted, in which case it will be updated if it changed (using the fewest mutations possible).'
             }
           ]}
           transition={['fade']}
         />
         {/* render (output) */}
-        <Slide
-          bgColor="secondary"
-          textColor="primary"
-          transition={['fade']}
-        >
-          <Heading
-            caps
-            size={5}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" textColor="primary" transition={['fade']}>
+          <Heading caps size={5} textColor="tertiary">
             Render (output)
           </Heading>
           <p
@@ -459,37 +399,18 @@ export default class Presentation extends React.Component {
           </div>
         </Slide>
         {/* jsx (intro) */}
-        <Slide
-          bgColor="secondary"
-          transition={['fade']}
-        >
-          <Heading
-            size={1}
-            lineHeight={1}
-            textColor="primary"
-          >
+        <Slide bgColor="secondary" transition={['fade']}>
+          <Heading size={1} lineHeight={1} textColor="primary">
             JSX
           </Heading>
-          <Text
-            italic
-            fit
-            margin="15px 0 0"
-            textColor="tertiary"
-          >
-            An optional, XML/HTML-like syntactic sugar used to describe what the UI should look like.
+          <Text italic fit margin="15px 0 0" textColor="tertiary">
+            An optional, XML/HTML-like syntactic sugar used to describe what the
+            UI should look like.
           </Text>
         </Slide>
         {/* jsx (code panes) */}
-        <Slide
-          bgColor="secondary"
-          textColor="primary"
-          transition={['fade']}
-        >
-          <Heading
-            caps
-            size={5}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" textColor="primary" transition={['fade']}>
+          <Heading caps size={5} textColor="tertiary">
             JSX
           </Heading>
           <Layout>
@@ -549,9 +470,8 @@ export default class Presentation extends React.Component {
             style={{
               color: '#949494'
             }}
-
           >
-            JSX needs to be transformed (by a compiler like {' '}
+            JSX needs to be transformed (by a compiler like{' '}
             <Link
               href="https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015%2Creact%2Cstage-0&targets=&browsers=&builtIns=false&debug=false&code=%3Ch1%0D%0A%20%20className%3D%22your-class%22%0D%0A%3E%0D%0A%20%20Hello%2C%20World!%0D%0A%3C%2Fh1%3E"
               style={{
@@ -565,23 +485,11 @@ export default class Presentation extends React.Component {
           </Text>
         </Slide>
         {/* component (intro) */}
-        <Slide
-          bgColor="secondary"
-          transition={['fade']}
-        >
-          <Heading
-            size={1}
-            lineHeight={1}
-            textColor="primary"
-          >
+        <Slide bgColor="secondary" transition={['fade']}>
+          <Heading size={1} lineHeight={1} textColor="primary">
             Component
           </Heading>
-          <Text
-            italic
-            fit
-            margin="15px 0 0"
-            textColor="tertiary"
-          >
+          <Text italic fit margin="15px 0 0" textColor="tertiary">
             An independent, reusable piece of UI.
           </Text>
         </Slide>
@@ -598,37 +506,33 @@ export default class Presentation extends React.Component {
             {
               loc: [0, 1],
               title: 'Component (code)',
-              note: 'Use an ES6 class to subclass Component as a child of the React.Component class.'
+              note:
+                'Use an ES6 class to subclass Component as a child of the React.Component class.'
             },
             {
               loc: [1, 3],
               title: 'Component (code)',
-              note: 'Implement the render lifecycle method, which is required and will return a virtual representation of what should appear on the screen.'
+              note:
+                'Implement the render lifecycle method, which is required and will return a virtual representation of what should appear on the screen.'
             },
             {
               loc: [3, 7],
               title: 'Component (code)',
-              note: 'Use JSX to define what the DOM for this piece of UI will look like, which needs to be transformed into a tree of React elements prior to being returned.'
+              note:
+                'Use JSX to define what the DOM for this piece of UI will look like, which needs to be transformed into a tree of React elements prior to being returned.'
             },
             {
               loc: [11, 15],
               title: 'Component (code)',
-              note: 'Render the tree of React elements for this instance of Component into the DOM as children of the existing container element that has the id of "root".'
+              note:
+                'Render the tree of React elements for this instance of Component into the DOM as children of the existing container element that has the id of "root".'
             }
           ]}
           transition={['fade']}
         />
         {/* component (output) */}
-        <Slide
-          bgColor="secondary"
-          textColor="primary"
-          transition={['fade']}
-        >
-          <Heading
-            caps
-            size={5}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" textColor="primary" transition={['fade']}>
+          <Heading caps size={5} textColor="tertiary">
             Component (output)
           </Heading>
           <p
@@ -653,24 +557,13 @@ export default class Presentation extends React.Component {
           </div>
         </Slide>
         {/* props (intro) */}
-        <Slide
-          bgColor="secondary"
-          transition={['fade']}
-        >
-          <Heading
-            size={1}
-            lineHeight={1}
-            textColor="primary"
-          >
+        <Slide bgColor="secondary" transition={['fade']}>
+          <Heading size={1} lineHeight={1} textColor="primary">
             Props
           </Heading>
-          <Text
-            italic
-            fit
-            margin='15px 0 0'
-            textColor="tertiary"
-          >
-            External, immutable data that is accepted by, and configures, a component.
+          <Text italic fit margin="15px 0 0" textColor="tertiary">
+            External, immutable data that is accepted by, and configures, a
+            component.
           </Text>
         </Slide>
         {/* props (code) */}
@@ -686,32 +579,27 @@ export default class Presentation extends React.Component {
             {
               loc: [16, 19],
               title: 'Component w/ props (code)',
-              note: 'Pass the initial value of name into the component\'s React element in the render method of either ReactDOM or another component.'
+              note:
+                "Pass the initial value of name into the component's React element in the render method of either ReactDOM or another component."
             },
             {
               loc: [5, 6],
               title: 'Component w/ props (code)',
-              note: 'Embed name into the output of the render method by wrapping this.props.name in curly braces inside the JSX.'
+              note:
+                'Embed name into the output of the render method by wrapping this.props.name in curly braces inside the JSX.'
             },
             {
               loc: [11, 14],
               title: 'Component w/ props (code)',
-              note: 'Props can be validated in development using the PropTypes library.'
+              note:
+                'Props can be validated in development using the PropTypes library.'
             }
           ]}
           transition={['fade']}
         />
         {/* props (output) */}
-        <Slide
-          bgColor="secondary"
-          textColor="primary"
-          transition={['fade']}
-        >
-          <Heading
-            caps
-            size={5}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" textColor="primary" transition={['fade']}>
+          <Heading caps size={5} textColor="tertiary">
             Component w/ props (output)
           </Heading>
           <ComponentWithPropsContainer />
@@ -722,31 +610,19 @@ export default class Presentation extends React.Component {
             style={{
               color: '#949494'
             }}
-
           >
-            Name is being updated inside a parent component, which is passing{' '}
-            it to ComponentWithProps.
+            Name is being updated inside a parent component, which is passing it
+            to ComponentWithProps.
           </Text>
         </Slide>
         {/* state (intro) */}
-        <Slide
-          bgColor="secondary"
-          transition={['fade']}
-        >
-          <Heading
-            size={1}
-            lineHeight={1}
-            textColor="primary"
-          >
+        <Slide bgColor="secondary" transition={['fade']}>
+          <Heading size={1} lineHeight={1} textColor="primary">
             State
           </Heading>
-          <Text
-            italic
-            fit
-            margin="15px 0 0"
-            textColor="tertiary"
-          >
-            Internal, mutable data that is private to, and managed by, a component.
+          <Text italic fit margin="15px 0 0" textColor="tertiary">
+            Internal, mutable data that is private to, and managed by, a
+            component.
           </Text>
         </Slide>
         {/* state (code) */}
@@ -767,32 +643,27 @@ export default class Presentation extends React.Component {
             {
               loc: [3, 6],
               title: 'Component w/ state (code)',
-              note: 'Assign the initial value of time inside the constructor using this.state.'
+              note:
+                'Assign the initial value of time inside the constructor using this.state.'
             },
             {
               loc: [18, 19],
               title: 'Component w/ state (code)',
-              note: 'Embed time into the output of the render method by wrapping this.state.time in curly braces inside the JSX.'
+              note:
+                'Embed time into the output of the render method by wrapping this.state.time in curly braces inside the JSX.'
             },
             {
               loc: [9, 12],
               title: 'Component w/ state (code)',
-              note: 'Update time by calling this.setState with the new value inside a custom or lifecycle method (excluding render).'
+              note:
+                'Update time by calling this.setState with the new value inside a custom or lifecycle method (excluding render).'
             }
           ]}
           transition={['fade']}
         />
         {/* state (output) */}
-        <Slide
-          bgColor="secondary"
-          textColor="primary"
-          transition={['fade']}
-        >
-          <Heading
-            caps
-            size={5}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" textColor="primary" transition={['fade']}>
+          <Heading caps size={5} textColor="tertiary">
             Component w/ state (output)
           </Heading>
           <p
@@ -822,31 +693,19 @@ export default class Presentation extends React.Component {
             style={{
               color: '#949494'
             }}
-
           >
             Time is being updated by a setInterval configured in{' '}
             ComponentWithState&apos;s componentDidMount lifecycle method.
           </Text>
         </Slide>
         {/* lifecycle methods (intro) */}
-        <Slide
-          bgColor="secondary"
-          transition={['fade']}
-        >
-          <Heading
-            size={1}
-            lineHeight={1}
-            textColor="primary"
-          >
+        <Slide bgColor="secondary" transition={['fade']}>
+          <Heading size={1} lineHeight={1} textColor="primary">
             Lifecycle Methods
           </Heading>
-          <Text
-            italic
-            fit
-            margin="15px 0 0"
-            textColor="tertiary"
-          >
-            Hooks to run code at particular times in the life of a component instance.
+          <Text italic fit margin="15px 0 0" textColor="tertiary">
+            Hooks to run code at particular times in the life of a component
+            instance.
           </Text>
         </Slide>
         {/* lifecycle methods (code) */}
@@ -858,31 +717,36 @@ export default class Presentation extends React.Component {
             {
               loc: [0, 1],
               title: 'Lifecycle Methods (code)',
-              note: 'Methods are called in a specific order and at specific times during mounting, updating and unmounting...'
+              note:
+                'Methods are called in a specific order and at specific times during mounting, updating and unmounting...'
             },
             // mounting...
             {
               loc: [1, 4],
               title: 'Lifecycle methods (mounting)',
-              note: 'Methods called when a component is being initialized and inserted into the DOM. Only called once.'
+              note:
+                'Methods called when a component is being initialized and inserted into the DOM. Only called once.'
             },
             // CWM
             {
               loc: [4, 7],
               title: 'Lifecycle methods (mounting)',
-              note: 'Invoked immediately before mounting occurs. Does not have access to the DOM. Cannot trigger a re-render.'
+              note:
+                'Invoked immediately before mounting occurs. Does not have access to the DOM. Cannot trigger a re-render.'
             },
             // CDM
             {
               loc: [7, 12],
               title: 'Lifecycle methods (mounting)',
-              note: 'Invoked immediately after a component is mounted. Has access to the DOM. Calling setState will trigger a re-render.'
+              note:
+                'Invoked immediately after a component is mounted. Has access to the DOM. Calling setState will trigger a re-render.'
             },
             // updating...
             {
               loc: [12, 15],
               title: 'Lifecycle methods (updating)',
-              note: 'Methods called when a mounted component is being re-rendered, which can occur when props or state change. Not called for the initial render.'
+              note:
+                'Methods called when a mounted component is being re-rendered, which can occur when props or state change. Not called for the initial render.'
             },
             // CWR
             {
@@ -894,53 +758,46 @@ export default class Presentation extends React.Component {
             {
               loc: [19, 23],
               title: 'Lifecycle methods (updating)',
-              note: 'Invoked before re-rendering when new props or state are being received. Opportunity to determine if a re-render is needed. Defaults to true. Cannot call setState.'
+              note:
+                'Invoked before re-rendering when new props or state are being received. Opportunity to determine if a re-render is needed. Defaults to true. Cannot call setState.'
             },
             // CWU
             {
               loc: [23, 26],
               title: 'Lifecycle methods (updating)',
-              note: 'Invoked before re-rendering when new props or state are being received. Cannot call setState.'
+              note:
+                'Invoked before re-rendering when new props or state are being received. Cannot call setState.'
             },
             // CDU
             {
               loc: [26, 29],
               title: 'Lifecycle methods (updating)',
-              note: 'Invoked immediately after re-rendering occurs. Can call setState.'
+              note:
+                'Invoked immediately after re-rendering occurs. Can call setState.'
             },
             // unmounting...
             {
               loc: [29, 32],
               title: 'Lifecycle methods (unmounting)',
-              note: 'Methods called when a component is being removed from the DOM. Only called once.'
+              note:
+                'Methods called when a component is being removed from the DOM. Only called once.'
             },
             // CWUN
             {
               loc: [32, 37],
               title: 'Lifecycle methods (unmounting)',
-              note: 'Invoked immediately before a component is unmounted and destroyed.'
-            },
+              note:
+                'Invoked immediately before a component is unmounted and destroyed.'
+            }
           ]}
           transition={['fade']}
         />
         {/* synthetic events (intro) */}
-        <Slide
-          bgColor="secondary"
-          transition={['fade']}
-        >
-          <Heading
-            size={1}
-            lineHeight={1}
-            textColor="primary"
-          >
+        <Slide bgColor="secondary" transition={['fade']}>
+          <Heading size={1} lineHeight={1} textColor="primary">
             Synthetic Events
           </Heading>
-          <Text
-            italic
-            fit
-            margin="15px 0 0"
-            textColor="tertiary"
-          >
+          <Text italic fit margin="15px 0 0" textColor="tertiary">
             A cross-browser wrapper around native browser events.
           </Text>
         </Slide>
@@ -957,12 +814,14 @@ export default class Presentation extends React.Component {
             {
               loc: [8, 14],
               title: 'Component w/ event (code)',
-              note: 'Add a custom event handler as a method on the class that...'
+              note:
+                'Add a custom event handler as a method on the class that...'
             },
             {
               loc: [9, 10],
               title: 'Component w/ event (code)',
-              note: 'gets the button\'s innerText using the synthetic event (e)...'
+              note:
+                "gets the button's innerText using the synthetic event (e)..."
             },
             {
               loc: [10, 13],
@@ -972,27 +831,21 @@ export default class Presentation extends React.Component {
             {
               loc: [16, 19],
               title: 'Component w/ event (code)',
-              note: 'Pass the event handler to the button element\'s onClick attribute'
+              note:
+                "Pass the event handler to the button element's onClick attribute"
             },
             {
               loc: [6, 7],
               title: 'Component w/ event (code)',
-              note: 'Bind the context of this to the event handler in the constructor.'
+              note:
+                'Bind the context of this to the event handler in the constructor.'
             }
           ]}
           transition={['fade']}
         />
         {/* synthetic events (output) */}
-        <Slide
-          bgColor="secondary"
-          textColor="primary"
-          transition={['fade']}
-        >
-          <Heading
-            caps
-            size={5}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" textColor="primary" transition={['fade']}>
+          <Heading caps size={5} textColor="tertiary">
             Component w/ event (output)
           </Heading>
           <p
@@ -1022,57 +875,29 @@ export default class Presentation extends React.Component {
             style={{
               color: '#949494'
             }}
-
           >
-            Inside ComponentWithEvent, the isToggleOn state is being updated{' '}
-            by a handleClick method on button click.
+            Inside ComponentWithEvent, the isToggleOn state is being updated by
+            a handleClick method on button click.
           </Text>
         </Slide>
         {/* demos */}
-        <Slide
-          bgColor="quartenary"
-          transition={['fade']}
-        >
-          <Heading
-            size={1}
-            lineHeight={1}
-            textColor="primary"
-          >
+        <Slide bgColor="quartenary" transition={['fade']}>
+          <Heading size={1} lineHeight={1} textColor="primary">
             Demos!
           </Heading>
         </Slide>
         {/* more (intro) */}
-        <Slide
-          bgColor="secondary"
-          transition={['fade']}
-        >
-          <Heading
-            size={1}
-            lineHeight={1}
-            textColor="primary"
-          >
+        <Slide bgColor="secondary" transition={['fade']}>
+          <Heading size={1} lineHeight={1} textColor="primary">
             More...
           </Heading>
-          <Text
-            italic
-            fit
-            margin="15px 0 0"
-            textColor="tertiary"
-          >
+          <Text italic fit margin="15px 0 0" textColor="tertiary">
             Additional concepts, resources and tools.
           </Text>
         </Slide>
         {/* more (list) */}
-        <Slide
-          bgColor="secondary"
-          textColor="primary"
-          transition={['fade']}
-        >
-          <Heading
-            caps
-            size={6}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" textColor="primary" transition={['fade']}>
+          <Heading caps size={6} textColor="tertiary">
             More...
           </Heading>
           <Text
@@ -1231,22 +1056,11 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         {/* thank you TODO */}
-        <Slide
-          bgColor="secondary"
-          transition={['fade']}
-        >
-          <Heading
-            size={2}
-            lineHeight={1}
-            textColor="tertiary"
-          >
+        <Slide bgColor="secondary" transition={['fade']}>
+          <Heading size={2} lineHeight={1} textColor="tertiary">
             Thank you!
           </Heading>
-          <Text
-            margin='15px 0 0'
-            size={6}
-            textColor="quartenary"
-          >
+          <Text margin="15px 0 0" size={6} textColor="quartenary">
             <Link
               href="https://twitter.com/colinrcummings"
               style={{
